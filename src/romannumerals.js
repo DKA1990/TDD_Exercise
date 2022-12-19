@@ -68,6 +68,8 @@ const numeralKey = [[1000, 'M'],
                     [1, 'I']];
 
 function convertDecimalKey(num)  {
+    if (num > 3999) throw new Error("Maximum number exceeded");
+    if (num < 0) throw new Error("Number cannot be below 0");
     let manipulatedNum = num;
     return numeralKey.reduce((accum, curr) => {
         while (manipulatedNum >= curr[0]) {
@@ -77,7 +79,5 @@ function convertDecimalKey(num)  {
         return accum;
     }, '');
 }
-
-console.log(convertDecimalKey(2473));
 
 module.exports = { convertDecimal, convertDecimalKey };
