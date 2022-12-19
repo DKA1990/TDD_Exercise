@@ -20,7 +20,7 @@ function convertDecimal(num) {
 
 function numeralBuilder(num, len) {
     let numeralString = '';
-    let charSet = [['I', 'V', 'X'], ['X', 'L', 'C'], ['C', 'D', 'M']]
+    const charSet = [['I', 'V', 'X'], ['X', 'L', 'C'], ['C', 'D', 'M']]
     switch(num) {
         case 1:
             numeralString = charSet[len - 1][0];
@@ -53,4 +53,31 @@ function numeralBuilder(num, len) {
     return numeralString;
 }
 
-module.exports = convertDecimal;
+const numeralKey = [[1000, 'M'], 
+                    [900, 'CM'], 
+                    [500, 'D'], 
+                    [400, 'CD'], 
+                    [100, 'C'], 
+                    [90, 'XC'], 
+                    [50, 'L'],
+                    [40, 'XL'],
+                    [10, 'X'],
+                    [9, 'IX'],
+                    [5, 'V'],
+                    [4, 'IV'],
+                    [1, 'I']];
+
+function convertDecimalKey(num)  {
+    let manipulatedNum = num;
+    return numeralKey.reduce((accum, curr) => {
+        while (manipulatedNum >= curr[0]) {
+            accum = accum + curr[1];
+            manipulatedNum = manipulatedNum - curr[0];
+        }
+        return accum;
+    }, '');
+}
+
+console.log(convertDecimalKey(2473));
+
+module.exports = { convertDecimal, convertDecimalKey };
