@@ -4,7 +4,13 @@ function convertDecimal(num) {
     while (manipulatedNum > 0) {
         let numLength = Math.floor(Math.log10(manipulatedNum)) + 1;
         let numPos = Math.floor(manipulatedNum / Math.pow(10, numLength - 1));
-        numerals = numerals + numeralBuilder(numPos, numLength);
+        if (numLength === 4) {
+            for (let i = 0; i < numPos; i++) {
+                numerals = numerals + 'M';
+            }
+        } else {
+            numerals = numerals + numeralBuilder(numPos, numLength);   
+        }
         manipulatedNum = manipulatedNum % (Math.pow(10, numLength - 1));
     }
     return numerals;

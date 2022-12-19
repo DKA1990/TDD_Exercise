@@ -22,4 +22,8 @@ test('check function converts numbers above 10', () => {
 
 test('check function converts numbers above 100', () => {
     expect(convertDecimal(169)).toBe('CLXIX');
-})
+});
+
+test('check function converts numbers above 1000', () => {
+    expect(convertDecimal(2473)).toBe('MMCDLXXIII');
+});
