@@ -15,3 +15,7 @@ test('check function converts numbers 1 through 9', () => {
     expect(convertDecimal(8)).toBe('VIII');
     expect(convertDecimal(9)).toBe('IX');
 });
+
+test('check function converts numbers above 10', () => {
+    expect(convertDecimal(15)).toBe('XV');
+});

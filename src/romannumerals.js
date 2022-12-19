@@ -1,32 +1,45 @@
 function convertDecimal(num) {
-    numeralString = '';
+    let manipulatedNum = num;
+    let numerals = '';
+    while (manipulatedNum > 0) {
+        let numLength = Math.floor(Math.log10(manipulatedNum)) + 1;
+        let numPos = Math.floor(manipulatedNum / Math.pow(10, numLength - 1));
+        numerals = numerals + numeralBuilder(numPos, numLength);
+        manipulatedNum = manipulatedNum % (Math.pow(10, numLength - 1));
+    }
+    return numerals;
+}
+
+function numeralBuilder(num, len) {
+    let numeralString = '';
+    let charSet = [['I', 'V', 'X'], ['X', 'L', 'C']]
     switch(num) {
         case 1:
-            numeralString = 'I';
+            numeralString = charSet[len - 1][0];
             break;
         case 2:
-            numeralString = 'II';
+            numeralString = charSet[len - 1][0] + charSet[len - 1][0];
             break;
         case 3:
-            numeralString = 'III';
+            numeralString = charSet[len - 1][0] + charSet[len - 1][0] + charSet[len - 1][0];
             break;
         case 4:
-            numeralString = 'IV';
+            numeralString = charSet[len - 1][0] + charSet[len - 1][1];
             break;
         case 5:
-            numeralString = 'V';
+            numeralString = charSet[len - 1][1];
             break;
         case 6:
-            numeralString = 'VI';
+            numeralString = charSet[len - 1][1] + charSet[len - 1][0];
             break;
         case 7:
-            numeralString = 'VII';
+            numeralString = charSet[len - 1][1] + charSet[len - 1][0] + charSet[len - 1][0];
             break;
         case 8:
-            numeralString = 'VIII';
+            numeralString = charSet[len - 1][1] + charSet[len - 1][0] + charSet[len - 1][0] + charSet[len - 1][0];
             break;
         case 9:
-            numeralString = 'IX';
+            numeralString = charSet[len - 1][0] + charSet[len - 1][2];
             break;
     }
     return numeralString;
