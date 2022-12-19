@@ -1,4 +1,6 @@
 function convertDecimal(num) {
+    if (num > 3999) throw new Error("Maximum number exceeded");
+    if (num < 0) throw new Error("Number cannot be below 0");
     let manipulatedNum = num;
     let numerals = '';
     while (manipulatedNum > 0) {

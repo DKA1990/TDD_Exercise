@@ -27,3 +27,7 @@ test('check function converts numbers above 100', () => {
 test('check function converts numbers above 1000', () => {
     expect(convertDecimal(2473)).toBe('MMCDLXXIII');
 });
+
+test('check function gives empty string when passed 0', () => {
+    expect(convertDecimal(0)).toBe('');
+});
