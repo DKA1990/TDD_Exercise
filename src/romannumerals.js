@@ -12,7 +12,7 @@ function convertDecimal(num) {
 
 function numeralBuilder(num, len) {
     let numeralString = '';
-    let charSet = [['I', 'V', 'X'], ['X', 'L', 'C']]
+    let charSet = [['I', 'V', 'X'], ['X', 'L', 'C'], ['C', 'D', 'M']]
     switch(num) {
         case 1:
             numeralString = charSet[len - 1][0];

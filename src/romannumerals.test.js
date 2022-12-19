@@ -19,3 +19,7 @@ test('check function converts numbers 1 through 9', () => {
 test('check function converts numbers above 10', () => {
     expect(convertDecimal(15)).toBe('XV');
 });
+
+test('check function converts numbers above 100', () => {
+    expect(convertDecimal(169)).toBe('CLXIX');
+})
